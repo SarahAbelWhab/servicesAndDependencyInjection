@@ -14,6 +14,7 @@ export class AccountService {
   GetAllAccounts(){
     return this.accounts;
   }
+
   AddNewAccount(name:string, status:string){
     //console.log(account);
     let newAcc = new Account(this.accounts.length+1, name,status);
@@ -21,11 +22,12 @@ export class AccountService {
     this.logService.LogNewAccount(name, status);
 
     }
+
   ChangeStatus(status,accountNo){
       //this.accounts[accountNo].status = status;
       let acc = this.accounts.filter(c=>c.id == accountNo)[0]
       acc.status = status;
-      this.logService.LogChangeStatusMessage(acc.name, status);
-      
+      this.logService.LogChangeStatusMessage(acc.name, status);      
     }
+
 }

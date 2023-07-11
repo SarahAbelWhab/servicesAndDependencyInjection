@@ -9,15 +9,11 @@ import { Account } from '../shared/account.module';
 })
 export class NewAccountComponent {
   name: string
-  status: string;
-  @Output() onAddedAccount = new EventEmitter<Account>();
+  status: string; 
+  
+  constructor(private accountService:AccountService){  }
 
-  constructor(private accountService:AccountService){
-
-  }
-  onAddAccount(){
-    //console.log(this.name + this.status);
-    //this.onAddedAccount.emit({id:3, name:this.name,status:this.status});
+  onAddAccount(){    
     this.accountService.AddNewAccount( this.name,this.status)
     this.name=''
     this.status=''

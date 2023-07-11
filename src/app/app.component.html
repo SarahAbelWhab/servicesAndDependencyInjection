@@ -9,6 +9,6 @@
   <br>
 
   <div class="row">
-    <app-account *ngFor="let accountEle of accounts; let i =index" [account]="accountEle" (changeStatus)="onChangeStatus($event,i)"></app-account>
+    <app-account *ngFor="let accountEle of accounts; let i =index" [account]="accountEle"></app-account>
   </div>
 </div>

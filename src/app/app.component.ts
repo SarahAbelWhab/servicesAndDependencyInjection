@@ -10,20 +10,11 @@ import { LogService } from './shared/Log.service';
 })
 export class AppComponent implements OnInit{
  accounts:Account[];
-  constructor(private logService:LogService,private accountService:AccountService) {}
+
+  constructor(private accountService:AccountService) {}
+
   ngOnInit(): void {
     this.accounts = this.accountService.GetAllAccounts();
   }
-
-  // onAddNewAccount(account:Account){
-  // //console.log(account);
-  // //this.accounts.push(account);
-  // this.accountService.AddNewAccount(account)
-  // }
-  onChangeStatus(status,i){
-    //this.accounts[i].status = status;
-    this.accountService.ChangeStatus(status,i);
-    //this.logService.LogChangeStatusMessage(this.accounts[i].name, status);
-    
-  }
+  
 }

@@ -9,13 +9,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AccountComponent {  
  
-  constructor(private accountService:AccountService) {}
- @Input() account:Account;
- //@Output() changeStatus = new EventEmitter<string>();
+  @Input() account:Account;
+  
+  constructor(private accountService:AccountService) {} 
 
  onChangeStatus(status:string){
-  this.accountService.ChangeStatus(status,this.account.id);
-  //console.log(status);
-  //this.changeStatus.emit(status);  
+  this.accountService.ChangeStatus(status,this.account.id); 
  }
+
 }
