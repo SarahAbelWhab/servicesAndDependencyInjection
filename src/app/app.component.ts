@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { Account } from './shared/account.module';
+import { LogService } from './shared/Log.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[LogService]
 })
 export class AppComponent {
-  title = 'services-dependency-injection';
+ 
+  constructor(private logService:LogService) {}
   accounts:Account[] = [{name:"Mike",status: "Unknown"},new Account("Mike", "Unknown")]
 
   onAddNewAccount(account:Account){
@@ -16,6 +19,7 @@ export class AppComponent {
   }
   onChangeStatus(status,i){
     this.accounts[i].status = status;
-    console.log(`Change status of account ${this.accounts[i].name} to ${status}`);
+    this.logService.LogChangeStatusMessage(this.accounts[i].name, status);
+    
   }
 }
